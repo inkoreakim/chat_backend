@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: 'chat_backend'
+  datasource:
+    url: 'jdbc:sqlserver://222.100.91.57:1433;encrypt=true;trustServerCertificate=true;'
+    username: 'mccsi'
+    password: 'mccsi_3574'
+  devtools:
+    livereload:
+      enabled: true
+    remote:
+      restart:
+        enabled: true
