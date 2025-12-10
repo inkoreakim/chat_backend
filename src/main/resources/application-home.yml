@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: 'chat_backend'
+  datasource:
+    url: 'jdbc:mysql://localhost:3306/my_home?useSSL=false&allowPublicKeyRetrieval=true'
+    username: 'kjh7330'
+    password: '7330jkky!!'
+  devtools:
+    livereload:
+      enabled: true
+    remote:
+      restart:
+        enabled: true
