@@ -7,7 +7,8 @@ import org.chat_backend.common.enums.MessageType;
 @Getter
 @Setter
 public class ChatMessage {
+    private Long roomId;
     private String sender;
-    private String message;
+    private String content;
     private MessageType messageType;
 }
