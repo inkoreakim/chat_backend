@@ -23,6 +23,11 @@
         <div class="icon"><i class="fa-solid fa-user"></i></div>
         <div class="textbox">뭐~ 늘 똑같은 하루 하루를 보내는 중이에요. 코로나가 다시 극성이어서 모이지도 못하구 있군요 ㅠㅠ 얼른 좀 잠잠해졌으면 좋겠습니다요!</div>
     </div>
+
+    <div id="message-input-area" class="input-area">
+        <input type="text" id="messageInput" placeholder="메시지를 입력하세요" onkeyup="if(event.keyCode==13) sendMessage()">
+        <button id="sendButton" onclick="sendMessage()">전송</button>
+    </div>
 </div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.2/sockjs.min.js"></script>

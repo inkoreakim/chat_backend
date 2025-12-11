@@ -9,8 +9,10 @@ a {
 }
 
 .wrap {
-    padding: 40px 0;
+    padding: 40px 0 80px 0; /* 입력창 높이만큼 하단에 패딩 추가 */
     background-color: #A8C0D6;
+    min-height: 100vh; /* 화면 전체 높이 사용 */
+    overflow-y: scroll; /* 메시지 많을 경우 스크롤 허용 */
 }
 
 .wrap .chat {
@@ -78,4 +80,59 @@ a {
     right: -15px;
     content: "▶";
     color: #F9EB54;
+}
+
+.input-area {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center; /* 세로 중앙 정렬 */
+    padding: 10px 20px;
+    background-color: #ffffff; /* 배경을 흰색으로 변경하여 더 깔끔하게 */
+    border-top: 1px solid #e0e0e0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05); /* 그림자 약하게 */
+    z-index: 100; /* 다른 요소 위에 확실히 보이도록 */
+}
+
+.input-area #messageInput {
+    flex-grow: 1;
+    padding: 12px 15px; /* 패딩을 늘려 높이 확보 */
+    border: 2px solid #ddd;
+    border-radius: 20px; /* 둥근 모서리 */
+    font-size: 15px;
+    margin-right: 10px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+/* 입력 필드에 포커스 되었을 때 테두리 색상 변경 */
+.input-area #messageInput:focus {
+    border-color: #5F9EA0; /* 청록색 계열로 포커스 강조 */
+}
+
+.input-area #sendButton {
+    /* 기존: padding: 10px 20px; */
+    width: 60px; /* 버튼의 너비를 고정하여 정사각형에 가깝게 만듭니다 */
+    height: 44px; /* 입력 필드 높이와 맞춥니다 */
+    background-color: #5F9EA0; /* 세련된 청록색 (Cadet Blue) */
+    color: white;
+    border: none;
+    border-radius: 22px; /* 원형에 가깝게 */
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600; /* 글씨 굵게 */
+    transition: background-color 0.2s, transform 0.1s;
+    /* 텍스트 대신 아이콘을 사용할 경우: */
+    /* content: '→'; font-size: 20px; */
+}
+
+.input-area #sendButton:hover {
+    background-color: #4682B4; /* 호버 시 색상 진하게 */
+    transform: translateY(-1px); /* 살짝 떠오르는 효과 */
+}
+
+.input-area #sendButton:active {
+    transform: translateY(0);
 }
