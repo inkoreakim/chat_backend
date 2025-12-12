@@ -82,6 +82,25 @@ a {
     color: #F9EB54;
 }
 
+.wrap .system-message {
+    /* 시스템 메시지 컨테이너 */
+    display: flex;
+    justify-content: center; /* 메시지 전체를 중앙으로 정렬 */
+    padding: 10px 20px 0 20px; /* 위쪽 패딩만 주어 메시지 간격 확보 */
+}
+
+.wrap .system-message .message-text {
+    /* 메시지 내용 (배경이 없는 텍스트 박스) */
+    background-color: #A8C0D6; /* 채팅 배경색과 통일성을 위해 배경색 제거 */
+    color: #6c757d; /* 짙은 회색 텍스트 */
+    font-size: 12px;
+    padding: 5px 15px;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* 은은한 그림자 */
+    max-width: 80%;
+    text-align: center;
+}
+
 .input-area {
     position: fixed;
     bottom: 0;

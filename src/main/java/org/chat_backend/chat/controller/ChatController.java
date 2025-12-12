@@ -23,7 +23,7 @@ public class ChatController {
     @MessageMapping("/chat/message")
     @SendTo("/topic/public")
     public ChatMessage sendMessage(@Payload ChatMessage chatMessage) {
-        log.info("{} : '{}'", chatMessage.getSender(), chatMessage.getContent());
+        log.info("<TYPE : {},> {} : '{}'", chatMessage.getType() ,chatMessage.getSender(), chatMessage.getContent());
         return chatMessage;
     }
 }
