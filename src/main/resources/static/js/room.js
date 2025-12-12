@@ -2,21 +2,25 @@ let stompClient = null;
 let username = "user_" + Math.floor(Math.random() * 100);
 
 function connect () {
+    // SockJS 객체 생성 및 엔드포인트 연결
+    // WebSocketCOnfig 에서 등록한 endpoint 와 일치해야함
     let socket = new SockJS('/ws/chat')
+    // STOMP 클라이언트 생성
     stompClient = Stomp.over(socket);
 
-    // 2. 연결 시도
+    // 연결 시도
+    // {}: 연결 시 전달할 STOMP 헤더, success 콜백함수, error 콜백함수
     stompClient.connect({}, onConnected, onError);
 }
 
 function onConnected() {
     console.log('WebSocket 연결 성공');
 
-    // 3. 메시지를 받을 채널 구독
-    // ChatController의 @SendTo("/topic/public")과 일치해야 합니다.
+    // 메시지를 받을 채널 구독
+    // ChatController의 @SendTo("/topic/public")과 일치해야 함.
     stompClient.subscribe('/topic/public', onMessageReceived);
 
-    // 4. 접속 메시지 서버로 전송 (선택 사항)
+    // 접속 메시지 서버로 전송 (선택 사항)
     // /app --> Prefix
     stompClient.send("/app/chat/message",
         {},
@@ -36,8 +40,8 @@ function sendMessage() {
             content: messageContent,
             type: 'CHAT'
         };
-        // 5. 서버로 메시지 전송
-        // ChatController의 @MessageMapping("/chat/message")와 일치해야 합니다.
+        // 서버로 메시지 전송
+        // ChatController의 @MessageMapping("/chat/message")와 일치해야함
         stompClient.send("/app/chat/message", {}, JSON.stringify(chatMessage));
         document.getElementById('messageInput').value = '';
     }
@@ -46,10 +50,10 @@ function sendMessage() {
 function onMessageReceived(payload) {
     let message = JSON.parse(payload.body);
     const messages = document.getElementById('messages');
-    // 1. 메시지를 담을 최상위 div 요소 생성
+    // 메시지를 담을 최상위 div 요소 생성
     const chatContainer = document.createElement('div');
 
-    // 2. 아이콘 div와 텍스트 박스 div 생성
+    // 아이콘 div와 텍스트 박스 div 생성
     const iconDiv = document.createElement('div');
     iconDiv.classList.add('icon');
     iconDiv.innerHTML = '<i class="fa-solid fa-user"></i>';
