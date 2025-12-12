@@ -78,28 +78,7 @@ function onMessageReceived(payload) {
             chatContainer.appendChild(textboxDiv);
         }
     }
-
-
-    // const messageElement = document.createElement('div');
-    // messageElement.className = 'chat ch1'; // 클래스 지정
-    //
-    // const profileContainer = document.createElement('div');
-    // profileContainer.className = 'icon';
-    //
-    // const profileIcon = document.createElement('i');
-    // profileIcon.className = 'fa-solid fa-user';
-    //
-    // const textBox = document.createElement('div');
-    // textBox.className = 'textbox';
-    //
-    // textBox.textContent = message.content;
-    //
-    // profileContainer.appendChild(profileIcon);
-    // messageElement.appendChild(profileContainer);
-    // messageElement.appendChild(textBox);
-// 4. 메시지 리스트에 추가 (JOIN, CHAT 모두 처리됨)
     messages.appendChild(chatContainer);
-    // 5. 스크롤을 항상 가장 아래로 이동 (가장 중요)
     messages.scrollTop = messages.scrollHeight;
 }
 
